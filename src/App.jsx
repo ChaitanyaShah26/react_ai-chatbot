@@ -1,16 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    <div>React AI Chatbot</div>      
+    <div className="app">
+      <header className='header'>
+        <img className="logo" src="/chatbot-icon.png"></img>
+        <h2 className="title">AI Chatbot</h2>
+      </header>
+
+      <div className="chatContainer">
+
+      </div>
+    </div>      
     </>
   )
 }
 
-export default App
+export default App;
