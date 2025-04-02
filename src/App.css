@@ -9,6 +9,7 @@
   
 .header {
     text-align: center;
+    color: light-dark(#ffffff, #212121);;
 }
   
 .logo {
