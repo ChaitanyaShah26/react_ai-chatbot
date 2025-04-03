@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import './App.css'
+import { Chat } from './components/Chat/Chat';
+import { Controls } from './components/Controls/Controls';
 
 function App() {
+  const [messages, setMessages] = useState(MESSAGES);
 
   return (
     <>
@@ -11,11 +15,23 @@ function App() {
       </header>
 
       <div className="chatContainer">
-
+        <Chat messages={messages} />
       </div>
+      <Controls />
     </div>      
     </>
   )
 }
+
+const MESSAGES = [
+  {
+    role: 'user',
+    content: 'What is the capital of India?',
+  },
+  {
+    role: 'assistant',
+    content: 'New Delhi',
+  }
+]
 
 export default App;
