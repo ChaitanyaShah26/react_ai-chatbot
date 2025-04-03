@@ -1,9 +1,14 @@
 import "./Chat.css"
 
+const welcomeMessage = {
+    role: 'assistant',
+    content: 'Hello! How can I help you?'
+}
+
 export function Chat({messages}) {
     return (
         <div className="chat">
-            {messages.map(({ role, content }, index) => (
+            {[welcomeMessage, ...messages].map(({ role, content }, index) => (
                 <div className="message" key={index} data-role={role}>
                     {content}
                 </div>

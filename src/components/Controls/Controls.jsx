@@ -1,14 +1,42 @@
+import { useState } from "react"
 import "./Controls.css"
 
-export function Controls() {
+export function Controls({ onSend }) {
+    const [content, setContent] = useState("");
+
+    function handleContentChange(event) {
+        setContent(event.target.value);
+    }
+
+    function handleContentSend() {
+        if (content.length > 0) {
+            onSend(content);
+            setContent("");
+        }
+    }
+
+    function handleEnterPress(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            handleContentSend();
+        }
+    }
+
     return (
         <div className="controls">
             <div className="text-area-container">
-                <textarea className="text-area" placeholder="Write your message here"></textarea>
+                <textarea 
+                    className="text-area" 
+                    placeholder="Write your message here" 
+                    value={content} 
+                    onChange={handleContentChange}
+                    onKeyDown={handleEnterPress}
+                    >
+                </textarea>
             </div>
-            <button className="button"><SendIcon /></button>
+            <button className="button" onClick={handleContentSend}><SendIcon /></button>
         </div>
-    )
+    );
 }
 
 function SendIcon() {

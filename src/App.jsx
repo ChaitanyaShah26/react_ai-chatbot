@@ -4,7 +4,11 @@ import { Chat } from './components/Chat/Chat';
 import { Controls } from './components/Controls/Controls';
 
 function App() {
-  const [messages, setMessages] = useState(MESSAGES);
+  const [messages, setMessages] = useState([]);
+
+  function handleContentSend(content) {
+    setMessages((prevMessages) => [...prevMessages, {content, role: 'user'}]);
+  }
 
   return (
     <>
@@ -17,21 +21,10 @@ function App() {
       <div className="chatContainer">
         <Chat messages={messages} />
       </div>
-      <Controls />
+      <Controls onSend={handleContentSend}/>
     </div>      
     </>
   )
 }
-
-const MESSAGES = [
-  {
-    role: 'user',
-    content: 'What is the capital of India?',
-  },
-  {
-    role: 'assistant',
-    content: 'New Delhi',
-  }
-]
 
 export default App;
