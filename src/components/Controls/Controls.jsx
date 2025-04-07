@@ -1,3 +1,4 @@
+import TextareaAutosize from 'react-textarea-autosize'
 import { useState } from "react"
 import "./Controls.css"
 
@@ -25,14 +26,16 @@ export function Controls({ onSend }) {
     return (
         <div className="controls">
             <div className="text-area-container">
-                <textarea 
+                <TextareaAutosize 
                     className="text-area" 
                     placeholder="Write your message here" 
                     value={content} 
                     onChange={handleContentChange}
                     onKeyDown={handleEnterPress}
+                    minRows={1}
+                    maxRows={4}
                     >
-                </textarea>
+                </TextareaAutosize>
             </div>
             <button className="button" onClick={handleContentSend}><SendIcon /></button>
         </div>
