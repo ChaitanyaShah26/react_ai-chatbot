@@ -6,7 +6,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Loader } from './components/Loader/loader';
 
 const googleai = new GoogleGenerativeAI(import.meta.env.VITE_GOOGLE_AI_API_KEY);
-const gemini = googleai.getGenerativeModel({ model: "gemini 1.5 flash" });
+const gemini = googleai.getGenerativeModel({ model: "gemini-2.5-flash" });
 const chat = gemini.startChat({ history: [] });
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
     <div className="app">
       {isLoading && <Loader />}
       <header className='header'>
-        <img className="logo" src="/chatbot-icon.png"></img>
+        <img className="logo" src="public/chatbot-icon.png"></img>
         <h2 className="title">AI Chatbot</h2>
       </header>
 
